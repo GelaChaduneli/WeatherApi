@@ -1,0 +1,29 @@
+<div class="row" style="justify-content: center;">
+    <div class="col-md-5">
+        <div class="form-floating mt-5">
+            <input #cityName type="text" (keyup.enter)="getWeather(cityName.value)" class="form-control" id="cityName"
+                placeholder="-">
+            <label for="cityName">Enter the name of the city...</label>
+        </div>
+    </div>
+    <div class="col-md-1 mt-5">
+        <button (click)="getWeather(cityName.value)" type="button" class="btn btn-primary"
+            style="width: 100%;height:100%">Search</button>
+    </div>
+</div>
+
+<div class="row" style="justify-content: center;">
+    <div class="col-md-6">
+        <p class="my-3 mt-5 fs-5">Results for <b>{{weatherInfo?.name}}</b>:</p>
+        <fieldset class="form-group border rounded p-4">
+            <p><b>Temperature:</b><span>{{weatherInfo?.temperature.toFixed(2)}}<span
+                        *ngIf="weatherInfo">°C</span></span></p>
+            <p class="pb-4"><b>Weather conditions:</b><span>{{weatherInfo?.condition}}</span></p>
+            <p><b>Wind:</b><span>{{weatherInfo?.windSpeed.toFixed(2)}}<span *ngIf="weatherInfo">km/h</span> </span></p>
+            <p><b>Widn direction:</b><span>{{weatherInfo?.windDirection}}</span></p>
+            <p><b>Pressure:</b><span>{{weatherInfo?.pressure}}</span></p>
+            <p><b>Humidity:</b><span>{{weatherInfo?.humidity}}</span></p>
+        </fieldset>
+    </div>
+
+</div>
